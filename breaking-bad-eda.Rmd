@@ -1,0 +1,33 @@
+---
+title: "Breaking Bad: Análise Exploratória dos Dados"
+author: "Hadrizia Santos"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(reshape2)
+library(readr)
+library(gridExtra)
+library(plotly)
+
+aqua <- 'rgba(61, 217, 219, 1)'
+data <- read_csv("./data/data.csv")
+```
+
+```{r warning=FALSE}
+groupBySeason <- data %>% group_by(season) %>% 
+  summarise(seasonRating = mean(rating)) %>% na.omit()
+
+plot_ly(groupBySeason, x =~season, y =~seasonRating,
+        marker = list(color = aqua)) %>%
+  layout(title = "Rating by season",
+         xaxis = list(title = "Season"), 
+         yaxis = list(title ="Rating"))
+
+plot_ly (groupBySeason,  x =~season, y =~seasonRating)
+
