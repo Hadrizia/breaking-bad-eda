@@ -1,0 +1,121 @@
+---
+title: "Breaking Bad EDA"
+author: "Hadrizia Santos"
+date: "23 de março de 2018"
+output: html_document
+---
+
+### Análise explanatória sobre as avaliações dos episódios da série de TV Breaking Bad, extraídos do site IMDb.
+
+#### Carregando as bibliotecas e os dados
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+library(dplyr)
+library(plotly)
+library(ggplot2)
+library(readr)
+
+data <- read_csv("./data/data.csv")
+```
+
+```{r eval = FALSE}
+#library(dplyr)
+#library(ggplot2)
+#library(readr)
+#library(plotly)
+
+aqua <- 'rgba(61, 217, 219, 1)'
+data <- read_csv("./data/data.csv")
+data$importance[is.na(data$importance)] <- 0
+colors <- c("#D988BC","#FFFBCB","#ED5485","#57D1C9", "#512E67")
+
+```
+
+#### 1. Como se comporta as avaliações dos episódios por temporada?
+
+```{r}
+ratesBySeason <- data %>% group_by(season) 
+  plot_ly(data = ratesBySeason, type = 'box',
+             y = ratesBySeason$rating,
+             x = ratesBySeason$season,
+              line = list(color = "#57D1C9"),
+              name = "All Points") %>% 
+  layout( title="Avaliações dos episódios por temporada",
+          xaxis = list(title = 'Temporada'),
+          yaxis = list(title = 'Avaliação'))
+
+```
+
+  Como se pode observar no gráfico acima, as duas primeiras temporas tiveram a avaliação dos episódios quase simétrica, variando de 8.2 a 9.2, com mediana igual a 8.7 e 8.8, respectivamente e nota máxima igual a 9.2. A terceira temporada teve o episódio com a menor avaliação de todo o seriado, 10: Fly, com nota igual a 7.8, mediana igual a 8.7 e com nota máxima igual a 9.6. Na temporada 4 o crescimento da avaliação é bem parecido com o da temporada anterior, com nota mínima de 8.0, mediana de 8.8 e nota máxima de 9.8. A última temporada possui a melhor avaliação de todas, com nota mínima de 8.8, mediana de 9.45 e nota máxima igual a 9.9.
+
+#### 2. Quais são os episódios mais bem votados? E os que possuem piores votos?
+
+```{r}
+a <- data %>% arrange(desc(rating))
+top5 <- a %>% head(5)
+top_5 <- a %>% tail(5)
+
+top <- rbind(top5, top_5)
+top$season = as.factor(top$season)
+
+plot_ly(data = top, type = 'scatter',
+             y = top$rating,
+             x = reorder(top$episode, -top$rating),
+             mode = 'markers',
+             color = ~season,
+             colors = c('darkviolet', 'darkturquoise', 'lightsalmon1', 'mediumvioletred'),
+             marker = list(size = 15,
+                           symbol = 'star',
+                           line = list(color = '#000000',
+                                       width = 0.5)),
+        text=~paste('Season:', season, ', EP:', episode,'-', name, ', Rating:', rating)) %>% 
+  layout(title = "Episódios mais votados e menos votados",
+            xaxis = list(title = 'Episódio', autotick = F, dtick = 1),
+            yaxis = list(title = 'Avaliação')) %>%
+  add_annotations( text="Season", xref="paper", yref="paper",
+                  x=1.02, xanchor="left",
+                  y=0.9, yanchor="bottom",
+                  legendtitle=TRUE, showarrow=FALSE ) %>%
+  layout( legend=list(y=0.9, yanchor="top"))
+```
+
+#### 3. Como se comporta o número de mortes por episódio?
+
+```{r}
+numDeathsByEp <- data %>% filter(num_deaths >= 1)
+numDeathsByEp$season <- as.factor(numDeathsByEp$season) 
+
+plot_ly(numDeathsByEp, type = 'scatter',
+             y = numDeathsByEp$num_deaths,
+             x = reorder(numDeathsByEp$episode, -numDeathsByEp$num_deaths),
+             mode = 'markers',
+             color = numDeathsByEp$season,
+            colors = colorRamp(c("white", "darkturquoise", "black")),
+             marker = list(size = 15,
+                           symbol = 'cross',
+                           line = list(color = '#000000',
+                                       width = 0.5)) ) %>%
+  layout(yaxis = list( range = c(0,15))) %>%
+  add_annotations( text="Season", xref="paper", yref="paper",
+                  x=1.02, xanchor="left",
+                  y=0.9, yanchor="bottom",    # Same y as legend below
+                  legendtitle=TRUE, showarrow=FALSE ) %>%
+  layout( legend=list(y=0.9, yanchor="top" ) )
+```
+
+#### 4. Exite alguma relação entre o número de mortes importantes e a avaliação de cada episódio?
+
+```{r}
+cor_plot <- ggplot(data, aes(x = rating, y = importance)) +
+    geom_point(shape = 1) +
+    geom_smooth(method = "lm") + 
+  labs(title = "Correlação entre número de mortes e avaliação dos episódios", y = "Importância do personagem que morreu", x = "Avaliação do episódio") + xlim(7.5, 10) + ylim(0, 4) + theme_bw()
+
+ggplotly(cor_plot)
+
+correlacao <- cor(data$rating, data$importance)
+correlacao
+```
+
+Moderada
