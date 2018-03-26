@@ -1,63 +1,63 @@
-name,season,episode,rating,votes
-Pilot,s1,ep1,8.9,16882
-Cat's in the Bag...,s1,ep2,8.7,11613
-...And the Bag's in the River,s1,ep3,8.7,11247
-Cancer Man,s1,ep4,8.3,10846
-Gray Matter,s1,ep5,8.3,10598
-Crazy Handful of Nothin',s1,ep6,9.2,12348
-A No-Rough-Stuff-Type Deal,s1,ep7,8.8,10900
-Seven Thirty-Seven,s2,ep1,8.7,9674
-Grilled,s2,ep2,9.2,11506
-Bit by a Dead Bee,s2,ep3,8.4,9381
-Down,s2,ep4,8.2,9439
-Breakage,s2,ep5,8.3,9208
-Peekaboo,s2,ep6,8.8,10351
-Negro Y Azul,s2,ep7,8.7,9182
-Better Call Saul,s2,ep8,9.0,10842
-4 Days Out,s2,ep9,8.9,10692
-Over,s2,ep10,8.6,8997
-Mandala,s2,ep11,8.8,9419
-Phoenix,s2,ep12,9.1,10611
-ABQ,s2,ep13,9.1,10682
-No Más,s3,ep1,8.6,8960
-Caballo sin Nombre,s3,ep2,8.7,8621
-I.F.T.,s3,ep3,8.5,8666
-Green Light,s3,ep4,8.2,8792
-Más,s3,ep5,8.7,8358
-Sunset,s3,ep6,9.3,10267
-One Minute,s3,ep7,9.5,12917
-I See You,s3,ep8,8.8,8753
-Kafkaesque,s3,ep9,8.4,8667
-Fly,s3,ep10,7.6,15159
-Abiquiu,s3,ep11,8.5,8567
-Half Measures,s3,ep12,9.5,12370
-Full Measure,s3,ep13,9.6,14043
-Box Cutter,s4,ep1,9.1,11308
-Thirty-Eight Snub,s4,ep2,8.3,9019
-Open House,s4,ep3,8.0,9047
-Bullet Points,s4,ep4,8.7,8485
-Shotgun,s4,ep5,8.7,8506
-Cornered,s4,ep6,8.5,8649
-Problem Dog,s4,ep7,8.8,9112
-Hermanos,s4,ep8,9.1,10333
-Bug,s4,ep9,8.8,9178
-Salud,s4,ep10,9.5,13344
-Crawl Space,s4,ep11,9.6,15386
-End Times,s4,ep12,9.4,11741
-Face Off,s4,ep13,9.8,29567
-Live Free or Die,s5,ep1,9.2,13615
-Madrigal,s5,ep2,8.8,11107
-Hazard Pay,s5,ep3,8.8,10657
-Fifty-One,s5,ep4,8.8,10727
-Dead Freight,s5,ep5,9.6,16773
-Buyout,s5,ep6,8.8,11081
-Say My Name,s5,ep7,9.5,14313
-Gliding Over All,s5,ep8,9.5,15306
-Blood Money,s5,ep9,9.4,15011
-Buried,s5,ep10,9.0,12706
-Confessions,s5,ep11,9.5,16111
-Rabid Dog,s5,ep12,9.0,13244
-To'hajiilee,s5,ep13,9.7,23563
-Ozymandias,s5,ep14,9.9,93183
-Granite State,s5,ep15,9.6,23462
-Felina,s5,ep16,9.9,63723
+name,season,episode,rating,votes,deaths,num_deaths,importance
+Pilot,1,1,8.9,16882,Emilio Koyama,1,1
+'Cat''s in the Bag...',1,2,8.7,11613,,0,
+'...And the Bag''s in the River',1,3,8.7,11247,Domingo Gallardo "Krazy 8" Molina,1,1
+Cancer Man,1,4,8.3,10846,,0,
+Gray Matter,1,5,8.3,10598,,0,
+'Crazy Handful of Nothin''',1,6,9.2,12348,,0,
+A No-Rough-Stuff-Type Deal,1,7,8.8,10900,,0,
+Seven Thirty-Seven,2,1,8.7,9674,No-Doze and Gonzo,2,1
+Grilled,2,2,9.2,11506,Tuco Salamanca,1,3
+Bit by a Dead Bee,2,3,8.4,9381,,0,
+Down,2,4,8.2,9439,,0,
+Breakage,2,5,8.3,9208,,0,
+Peekaboo,2,6,8.8,10351,Convenience Store Clerk and Spooge,2,1
+Negro Y Azul,2,7,8.7,9182,Tortuga and Unnamed DEA agent,2,2
+Better Call Saul,2,8,9.0,10842,,0,
+4 Days Out,2,9,8.9,10692,,0,
+Over,2,10,8.6,8997,,0,
+Mandala,2,11,8.8,9419,Combo,1,2
+Phoenix,2,12,9.1,10611,Jane Margolis,1,3
+ABQ,2,13,9.1,10682,167 unnamed passengers on the Wayfarer 515 and JM 21 flights,167,1
+No Más,3,1,8.6,8960,Coyote driver  Olive Oil and 9  Mexican passengers,11,1
+Caballo sin Nombre,3,2,8.7,8621,,0,
+I.F.T.,3,3,8.5,8666,,0,
+Green Light,3,4,8.2,8792,,0,
+Más,3,5,8.7,8358,,0,
+Sunset,3,6,9.3,10267,Mrs. Peyketewa and Deputy Bobby Kee,2,1
+One Minute,3,7,9.5,12917,Unnamed Man and Marco Salamanca,2,2
+I See You,3,8,8.8,8753,Leonel Salamanca  Juan Bolsa and Two bodyguards,4,2
+Kafkaesque,3,9,8.4,8667,,0,
+Fly,3,10,7.6,15159,,0,
+Abiquiu,3,11,8.5,8567,,0,
+Half Measures,3,12,9.5,12370,Tomás Cantillo and Rival Dealers,3,2
+Full Measure,3,13,9.6,14043,4 Cartel Assassins and Gale Boetticher,5,3
+Box Cutter,4,1,9.1,11308,Victor,1,2
+Thirty-Eight Snub,4,2,8.3,9019,,0,
+Open House,4,3,8.0,9047,,0,
+Bullet Points,4,4,8.7,8485,Los Pollos Driver and Two Cartel Assassins,3,1
+Shotgun,4,5,8.7,8506,,0,
+Cornered,4,6,8.5,8649,Los Pollos Driver and Two Los Pollos Guards,3,1
+Problem Dog,4,7,8.8,9112,,0,
+Hermanos,4,8,9.1,10333,Max Arciniega,1,1
+Bug,4,9,8.8,9178,'Gus'' henchman',1,1
+Salud,4,10,9.5,13344,Joaquin Salamanca  Gaff  Eladio Vuente and 11 capos,12,2
+Crawl Space,4,11,9.6,15386,,0,
+End Times,4,12,9.4,11741,,0,
+Face Off,4,13,9.8,29567,'Hector "Tio" Salamanca Tyrus Kitt Gustavo Fring and Two of Gus'' Guards',5,3
+Live Free or Die,5,1,9.2,13615,,0,
+Madrigal,5,2,8.8,11107,Peter Schuler  Duane Chow and Chris Mara,3,1
+Hazard Pay,5,3,8.8,10657,,0,
+Fifty-One,5,4,8.8,10727,,0,
+Dead Freight,5,5,9.6,16773,Drew Sharp,1,1
+Buyout,5,6,8.8,11081,,0,
+Say My Name,5,7,9.5,14313,Mike Ehrmantraut,1,3
+Gliding Over All,5,8,9.5,15306,Dennis Markowski Dan Wachsberger and others 8,9,1
+Blood Money,5,9,9.4,15011,,0,
+Buried,5,10,9.0,12706,'Declan; Eight of Declan''s men and his cook',10,1
+Confessions,5,11,9.5,16111,,0,
+Rabid Dog,5,12,9.0,13244,,0,
+'To''hajiilee',5,13,9.7,23563,,0,
+Ozymandias,5,14,9.9,93183,Steven Gomez and Hank Schrader,2,3
+Granite State,5,15,9.6,23462,Andrea Cantillo,1,2
+Felina,5,16,9.9,63723,Kenny and others 5 gang members  Todd Alquist  Jack Welker  Lydia Rodarte-Quayle and Walter White,10,3
