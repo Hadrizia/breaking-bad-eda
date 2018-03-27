@@ -1,46 +1,46 @@
 name,season,episode,rating,votes,deaths,num_deaths,importance
-Pilot,1,1,8.9,16882,Emilio Koyama,1,1
+Pilot,1,1,8.9,16882,Emilio Koyama,1,0
 'Cat''s in the Bag...',1,2,8.7,11613,,0,
-'...And the Bag''s in the River',1,3,8.7,11247,Domingo Gallardo "Krazy 8" Molina,1,1
+'...And the Bag''s in the River',1,3,8.7,11247,Domingo Gallardo "Krazy 8" Molina,1,0
 Cancer Man,1,4,8.3,10846,,0,
 Gray Matter,1,5,8.3,10598,,0,
 'Crazy Handful of Nothin''',1,6,9.2,12348,,0,
 A No-Rough-Stuff-Type Deal,1,7,8.8,10900,,0,
-Seven Thirty-Seven,2,1,8.7,9674,No-Doze and Gonzo,2,1
-Grilled,2,2,9.2,11506,Tuco Salamanca,1,3
-Bit by a Dead Bee,2,3,8.4,9381,,0,
+Seven Thirty-Seven,2,1,8.7,9674,No-Doze and Gonzo,2,0
+Grilled,2,2,9.2,11506,Tuco Salamanca,1,2
+Bit by a Dead Bee,2,3,8.4,9381,,0,0
 Down,2,4,8.2,9439,,0,
 Breakage,2,5,8.3,9208,,0,
-Peekaboo,2,6,8.8,10351,Convenience Store Clerk and Spooge,2,1
-Negro Y Azul,2,7,8.7,9182,Tortuga and Unnamed DEA agent,2,2
+Peekaboo,2,6,8.8,10351,Convenience Store Clerk and Spooge,2,0
+Negro Y Azul,2,7,8.7,9182,Tortuga and Unnamed DEA agent,2,1
 Better Call Saul,2,8,9.0,10842,,0,
 4 Days Out,2,9,8.9,10692,,0,
 Over,2,10,8.6,8997,,0,
 Mandala,2,11,8.8,9419,Combo,1,2
-Phoenix,2,12,9.1,10611,Jane Margolis,1,3
-ABQ,2,13,9.1,10682,167 unnamed passengers on the Wayfarer 515 and JM 21 flights,167,1
-No Más,3,1,8.6,8960,Coyote driver  Olive Oil and 9  Mexican passengers,11,1
+Phoenix,2,12,9.1,10611,Jane Margolis,1,2
+ABQ,2,13,9.1,10682,167 unnamed passengers on the Wayfarer 515 and JM 21 flights,167,0
+No Más,3,1,8.6,8960,Coyote driver  Olive Oil and 9  Mexican passengers,11,0
 Caballo sin Nombre,3,2,8.7,8621,,0,
 I.F.T.,3,3,8.5,8666,,0,
 Green Light,3,4,8.2,8792,,0,
 Más,3,5,8.7,8358,,0,
-Sunset,3,6,9.3,10267,Mrs. Peyketewa and Deputy Bobby Kee,2,1
+Sunset,3,6,9.3,10267,Mrs. Peyketewa and Deputy Bobby Kee,2,0
 One Minute,3,7,9.5,12917,Unnamed Man and Marco Salamanca,2,2
 I See You,3,8,8.8,8753,Leonel Salamanca  Juan Bolsa and Two bodyguards,4,2
 Kafkaesque,3,9,8.4,8667,,0,
 Fly,3,10,7.6,15159,,0,
 Abiquiu,3,11,8.5,8567,,0,
 Half Measures,3,12,9.5,12370,Tomás Cantillo and Rival Dealers,3,2
-Full Measure,3,13,9.6,14043,4 Cartel Assassins and Gale Boetticher,5,3
+Full Measure,3,13,9.6,14043,4 Cartel Assassins and Gale Boetticher,5,2
 Box Cutter,4,1,9.1,11308,Victor,1,2
 Thirty-Eight Snub,4,2,8.3,9019,,0,
 Open House,4,3,8.0,9047,,0,
-Bullet Points,4,4,8.7,8485,Los Pollos Driver and Two Cartel Assassins,3,1
+Bullet Points,4,4,8.7,8485,Los Pollos Driver and Two Cartel Assassins,3,0
 Shotgun,4,5,8.7,8506,,0,
-Cornered,4,6,8.5,8649,Los Pollos Driver and Two Los Pollos Guards,3,1
+Cornered,4,6,8.5,8649,Los Pollos Driver and Two Los Pollos Guards,3,0
 Problem Dog,4,7,8.8,9112,,0,
-Hermanos,4,8,9.1,10333,Max Arciniega,1,1
-Bug,4,9,8.8,9178,'Gus'' henchman',1,1
+Hermanos,4,8,9.1,10333,Max Arciniega,1,0
+Bug,4,9,8.8,9178,'Gus'' henchman',1,0
 Salud,4,10,9.5,13344,Joaquin Salamanca  Gaff  Eladio Vuente and 11 capos,12,2
 Crawl Space,4,11,9.6,15386,,0,
 End Times,4,12,9.4,11741,,0,
@@ -51,7 +51,7 @@ Hazard Pay,5,3,8.8,10657,,0,
 Fifty-One,5,4,8.8,10727,,0,
 Dead Freight,5,5,9.6,16773,Drew Sharp,1,1
 Buyout,5,6,8.8,11081,,0,
-Say My Name,5,7,9.5,14313,Mike Ehrmantraut,1,3
+Say My Name,5,7,9.5,14313,Mike Ehrmantraut,1,2
 Gliding Over All,5,8,9.5,15306,Dennis Markowski Dan Wachsberger and others 8,9,1
 Blood Money,5,9,9.4,15011,,0,
 Buried,5,10,9.0,12706,'Declan; Eight of Declan''s men and his cook',10,1

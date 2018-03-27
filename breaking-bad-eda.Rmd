@@ -5,21 +5,30 @@ date: "23 de março de 2018"
 output: html_document
 ---
 
-### Análise explanatória sobre as avaliações dos episódios da série de TV Breaking Bad, extraídos do site IMDb.
+### Análise explanatória sobre as avaliações dos episódios da série de TV Breaking Bad, extraídos dos site IMDb e Breaking Bad Wikia.
+
+  Os dados desta análise que envolveram avaliação dos usuários foram obtidos do site IMDb (http://www.imdb.com/title/tt0903747/episodes). Os dados sobre as mortes dos personagens por episódio está disponível no site Breaking Bad Wikia (http://www.imdb.com/title/tt0903747/episodes) e a importância para cada morte foi atribuída pela autora desta análise e está enumerada de 0 (sem importância) a 3 (muito importante).
 
 #### Carregando as bibliotecas e os dados
+  
+  Inicialmente carregam-se as bibliotecas e os dados a serem analisados.
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 library(dplyr)
 library(plotly)
 library(ggplot2)
 library(readr)
-
 data <- read_csv("./data/data.csv")
+data$season <- as.factor(data$season)
+data$importance[is.na(data$importance)] <- 0
+data$deaths[is.na(data$deaths)] <- 'No deaths'
+colors <- c("#D988BC","#FFFBCB","#ED5485","#57D1C9", "#512E67")
 ```
 
 ```{r eval = FALSE}
+
 #library(dplyr)
 #library(ggplot2)
 #library(readr)
@@ -27,14 +36,13 @@ data <- read_csv("./data/data.csv")
 
 aqua <- 'rgba(61, 217, 219, 1)'
 data <- read_csv("./data/data.csv")
-data$importance[is.na(data$importance)] <- 0
-colors <- c("#D988BC","#FFFBCB","#ED5485","#57D1C9", "#512E67")
 
 ```
 
 #### 1. Como se comporta as avaliações dos episódios por temporada?
 
 ```{r}
+
 ratesBySeason <- data %>% group_by(season) 
   plot_ly(data = ratesBySeason, type = 'box',
              y = ratesBySeason$rating,
@@ -52,9 +60,8 @@ ratesBySeason <- data %>% group_by(season)
 #### 2. Quais são os episódios mais bem votados? E os que possuem piores votos?
 
 ```{r}
-a <- data %>% arrange(desc(rating))
-top5 <- a %>% head(5)
-top_5 <- a %>% tail(5)
+top5 <- data %>% arrange(desc(rating, votes)) %>% head(5)
+top_5 <- data %>% arrange(desc(rating, votes)) %>% tail(5)
 
 top <- rbind(top5, top_5)
 top$season = as.factor(top$season)
@@ -69,16 +76,21 @@ plot_ly(data = top, type = 'scatter',
                            symbol = 'star',
                            line = list(color = '#000000',
                                        width = 0.5)),
-        text=~paste('Season:', season, ', EP:', episode,'-', name, ', Rating:', rating)) %>% 
+        text=~paste('Season:', season, ', EP:', episode,'-', name, ', Rating:', rating,
+                    'Votes:', votes, 'Deaths:', num_deaths, 'Importance:', importance)) %>% 
   layout(title = "Episódios mais votados e menos votados",
             xaxis = list(title = 'Episódio', autotick = F, dtick = 1),
             yaxis = list(title = 'Avaliação')) %>%
-  add_annotations( text="Season", xref="paper", yref="paper",
-                  x=1.02, xanchor="left",
+  add_annotations( text="Temporada", xref="paper", yref="paper",
+                  x=1.01, xanchor="left",
                   y=0.9, yanchor="bottom",
                   legendtitle=TRUE, showarrow=FALSE ) %>%
-  layout( legend=list(y=0.9, yanchor="top"))
+  layout(legend=list(y=0.9, yanchor="top"))
+
 ```
+
+  Os episódios mais bem votados são: Ozymandias (S5EP14) e Felina (S5EP16) com nota 9.9, Face Off (S4EP13) com nota 9.8, 'To''hajiilee' (S5EP13) com nota 9.7 e Full Measure (S3EP13) com nota 9.6. Entre os episódios menos votados, estão Fly (S3EP10) com nota 7.6, Open House(S4EP3) com nota 8.0, Green Light (S3EP4) e Down (S2EP4) com nota 8.2 e Thirty-Eight Snub (S4EP2) com nota 8.3. 
+  Um fato curioso sobre estas avaliações é que nos 5 episódios com menores notas não houveram mortes, enquanto que em 4 dos 5 episódios mais votados houveram mortes de personagens considerados importantes, como Walter White, Gustavo Fring e Hank Schrader, totalizando em 22 personagens assassinados.
 
 #### 3. Como se comporta o número de mortes por episódio?
 
@@ -95,22 +107,26 @@ plot_ly(numDeathsByEp, type = 'scatter',
              marker = list(size = 15,
                            symbol = 'cross',
                            line = list(color = '#000000',
-                                       width = 0.5)) ) %>%
-  layout(yaxis = list( range = c(0,15))) %>%
-  add_annotations( text="Season", xref="paper", yref="paper",
-                  x=1.02, xanchor="left",
+                                       width = 0.5)),
+text=~paste('Season:', season, ', EP:', episode,'-', name, ', Rating:', rating,
+                    'Votes:', votes, 'Deaths:', num_deaths, 'Importance:', importance)) %>% 
+  layout(title = "Número de mortes por episódio",
+            xaxis = list(title = 'Episódio', autotick = F, dtick = 1),
+            yaxis = list(title = 'Número de mortes', range = c(0,15))) %>%
+  add_annotations( text="Temporada", xref="paper", yref="paper",
+                  x=1.01, xanchor="left",
                   y=0.9, yanchor="bottom",    # Same y as legend below
                   legendtitle=TRUE, showarrow=FALSE ) %>%
   layout( legend=list(y=0.9, yanchor="top" ) )
 ```
 
-#### 4. Exite alguma relação entre o número de mortes importantes e a avaliação de cada episódio?
+#### 4. Exite alguma relação entre mortes importantes e a avaliação de cada episódio?
 
 ```{r}
 cor_plot <- ggplot(data, aes(x = rating, y = importance)) +
     geom_point(shape = 1) +
     geom_smooth(method = "lm") + 
-  labs(title = "Correlação entre número de mortes e avaliação dos episódios", y = "Importância do personagem que morreu", x = "Avaliação do episódio") + xlim(7.5, 10) + ylim(0, 4) + theme_bw()
+  labs(title = "Correlação entre a importância das mortes e a avaliação dos episódios", y = "Importância do personagem", x = "Avaliação") + xlim(8, 10) + ylim(0, 4) + theme_bw()
 
 ggplotly(cor_plot)
 
@@ -118,4 +134,5 @@ correlacao <- cor(data$rating, data$importance)
 correlacao
 ```
 
-Moderada
+  As mortes de cada episódio foram enumeradas de 0 a 3: 0 para as mortes de personagens desconhecidos; 1 para os personagens que apareceram poucas vezes e tiveram pouca relavância para o desenvolvimento da série, como Duane Chow; 2 para os personagens que tiveram grande relevânia para o desenvolvimento da série, como Jane Margolis e a família Salamanca; e valor 3 para os personagens principais da série, como Walter White, Gustavo Fring e Hank Schrader.
+  A correlação feita entre a importância das mortes ocorridas em um episódio e sua avaliação pelos usuários obteve valor igual a 0.5952737 é considerada uma correlação moderada.

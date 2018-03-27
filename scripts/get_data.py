@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 DATA_HEADER = ['name', 'season', 'episode', 'rating', 'votes']
 URL = 'https://www.imdb.com/title/tt0903747/episodes/?season='
 page = requests.get("https://www.imdb.com/title/tt0903747/episodes/?season=1")
-PATH = './data/data.csv'
+PATH = '../data/data.csv'
 soup = BeautifulSoup(page.content, 'html.parser')
 
 
@@ -46,6 +46,8 @@ def get_rows(soup, dataframe):
             div = img.find('div')
             if exists(div):
                 season, episode = get_text(div).split(', ')
+                season = season.replace('s', '')
+                episode = episode.replace('ep','')
 
         info = element.find('svg')
         if exists(info):
